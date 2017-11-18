@@ -23,7 +23,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+
+    self.navigationItem.title = @"Amazon Commodity Prices";
+
     _c_prices = [[NSMutableArray alloc] initWithCapacity:0];
     
     [self callAPI];
@@ -58,8 +60,6 @@
         if (error) {
             NSLog(@"Error: %@", error);
         } else {
-            NSLog(@"%@", response);
-            NSLog(@"%@", responseObject);
             _c_title = [responseObject objectForKey:@"title"];
             NSArray *data = [responseObject objectForKey:@"prices"];
             for(int i=0; i<[data count]; i++) {

@@ -23,6 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.navigationItem.title = @"Amazon Commodity URLs";
+    
     _commodity_urls = [[NSMutableArray alloc] initWithCapacity:0];
     
     [self callAPI];
