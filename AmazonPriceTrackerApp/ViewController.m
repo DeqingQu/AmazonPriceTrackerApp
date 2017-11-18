@@ -9,9 +9,11 @@
 #import "ViewController.h"
 #import "AFNetworking.h"
 
+#import "CommodityViewController.h"
+
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property NSMutableArray *commodity_urls;
+@property (strong, nonatomic) NSMutableArray *commodity_urls;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -82,4 +84,19 @@
     cell.detailTextLabel.text = c_url;
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"show" sender:indexPath];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ( [segue.identifier isEqualToString:@"show"] ) {
+        NSIndexPath *indexPath = sender;
+        NSInteger c_id = [[[_commodity_urls objectAtIndex:(long)indexPath.row] objectForKey:@"c_id"] integerValue];
+
+        CommodityViewController *c_vc = segue.destinationViewController;
+        c_vc.c_id = c_id;
+    }
+}
+    
 @end
