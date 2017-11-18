@@ -49,7 +49,7 @@
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
-    NSString *URLString = @"http://192.168.0.40:3000/api/commodity/42";
+    NSString *URLString = [NSString stringWithFormat:@"%@%ld", @"http://192.168.0.40:3000/api/commodity/", _c_id];
     NSDictionary *parameters = @{};
     
     NSURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:parameters error:nil];

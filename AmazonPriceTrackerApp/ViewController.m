@@ -86,11 +86,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:@"show" sender:indexPath];
+    [self performSegueWithIdentifier:@"commodity" sender:indexPath];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ( [segue.identifier isEqualToString:@"show"] ) {
+    if ( [segue.identifier isEqualToString:@"commodity"] ) {
         NSIndexPath *indexPath = sender;
         NSInteger c_id = [[[_commodity_urls objectAtIndex:(long)indexPath.row] objectForKey:@"c_id"] integerValue];
 
