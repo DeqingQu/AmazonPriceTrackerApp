@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33CAE5B9271AEB618AFF89DC /* libPods-AmazonPriceTrackerApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D7974BFA23C74E29B43F51 /* libPods-AmazonPriceTrackerApp.a */; };
 		FA49ED381FAA1CB600D34AC6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA49ED371FAA1CB600D34AC6 /* AppDelegate.m */; };
 		FA49ED3B1FAA1CB600D34AC6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA49ED3A1FAA1CB600D34AC6 /* ViewController.m */; };
 		FA49ED3E1FAA1CB600D34AC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA49ED3C1FAA1CB600D34AC6 /* Main.storyboard */; };
@@ -35,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6C36A4E7CCA6A1CE614C5239 /* Pods-AmazonPriceTrackerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmazonPriceTrackerApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AmazonPriceTrackerApp/Pods-AmazonPriceTrackerApp.release.xcconfig"; sourceTree = "<group>"; };
+		DDD1F3237AEA735DECFD6859 /* Pods-AmazonPriceTrackerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmazonPriceTrackerApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AmazonPriceTrackerApp/Pods-AmazonPriceTrackerApp.debug.xcconfig"; sourceTree = "<group>"; };
+		F4D7974BFA23C74E29B43F51 /* libPods-AmazonPriceTrackerApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AmazonPriceTrackerApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA49ED331FAA1CB500D34AC6 /* AmazonPriceTrackerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmazonPriceTrackerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA49ED361FAA1CB600D34AC6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FA49ED371FAA1CB600D34AC6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -58,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33CAE5B9271AEB618AFF89DC /* libPods-AmazonPriceTrackerApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B63C76574F3A87C671C1C6D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DDD1F3237AEA735DECFD6859 /* Pods-AmazonPriceTrackerApp.debug.xcconfig */,
+				6C36A4E7CCA6A1CE614C5239 /* Pods-AmazonPriceTrackerApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6B644DFEA7A27433FBF27197 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4D7974BFA23C74E29B43F51 /* libPods-AmazonPriceTrackerApp.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FA49ED2A1FAA1CB500D34AC6 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +107,8 @@
 				FA49ED4E1FAA1CB600D34AC6 /* AmazonPriceTrackerAppTests */,
 				FA49ED591FAA1CB600D34AC6 /* AmazonPriceTrackerAppUITests */,
 				FA49ED341FAA1CB500D34AC6 /* Products */,
+				2B63C76574F3A87C671C1C6D /* Pods */,
+				6B644DFEA7A27433FBF27197 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,9 +163,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA49ED5F1FAA1CB600D34AC6 /* Build configuration list for PBXNativeTarget "AmazonPriceTrackerApp" */;
 			buildPhases = (
+				E396E8DE6723113DFA59E3F3 /* [CP] Check Pods Manifest.lock */,
 				FA49ED2F1FAA1CB500D34AC6 /* Sources */,
 				FA49ED301FAA1CB500D34AC6 /* Frameworks */,
 				FA49ED311FAA1CB500D34AC6 /* Resources */,
+				14F233AAB4DF999EFEF7B3C4 /* [CP] Embed Pods Frameworks */,
+				003B8BA96F917FA2695F702D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -260,6 +287,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		003B8BA96F917FA2695F702D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AmazonPriceTrackerApp/Pods-AmazonPriceTrackerApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		14F233AAB4DF999EFEF7B3C4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AmazonPriceTrackerApp/Pods-AmazonPriceTrackerApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E396E8DE6723113DFA59E3F3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AmazonPriceTrackerApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FA49ED2F1FAA1CB500D34AC6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -370,7 +448,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -419,7 +497,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -428,6 +506,7 @@
 		};
 		FA49ED601FAA1CB600D34AC6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDD1F3237AEA735DECFD6859 /* Pods-AmazonPriceTrackerApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -442,6 +521,7 @@
 		};
 		FA49ED611FAA1CB600D34AC6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C36A4E7CCA6A1CE614C5239 /* Pods-AmazonPriceTrackerApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
