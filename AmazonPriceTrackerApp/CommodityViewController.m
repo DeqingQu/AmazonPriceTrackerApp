@@ -51,24 +51,43 @@
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
-    NSString *URLString = [NSString stringWithFormat:@"%@%ld", @"http://192.168.0.40:3000/api/commodity/", _c_id];
+    NSString *URLString = [NSString stringWithFormat:@"%@%ld", @"http://172.20.10.3:3000/api/commodity/", _c_id];
     NSDictionary *parameters = @{};
     
     NSURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:parameters error:nil];
     
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
-            NSLog(@"Error: %@", error);
+            [self showErrorWithTitle:@"Error Message" withMessage:[error localizedDescription]];
         } else {
-            _c_title = [responseObject objectForKey:@"title"];
-            NSArray *data = [responseObject objectForKey:@"prices"];
-            for(int i=0; i<[data count]; i++) {
-                [_c_prices addObject:[data objectAtIndex:i]];
+            NSDictionary *data = [responseObject objectForKey:@"data"];
+            _c_title = [data objectForKey:@"title"];
+            NSArray *prices = [data objectForKey:@"prices"];
+            for(int i=0; i<[prices count]; i++) {
+                [_c_prices addObject:[prices objectAtIndex:i]];
             }
             [_tableView reloadData];
         }
     }];
     [dataTask resume];
+}
+
+-(void)showErrorWithTitle:(NSString *)title withMessage:(NSString *)message {
+    UIAlertController * alert = [UIAlertController
+                                 alertControllerWithTitle:title
+                                 message:message
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* okButton = [UIAlertAction
+                               actionWithTitle:@"OK"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                                   //Handle your yes please button action here
+                               }];
+    
+    [alert addAction:okButton];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 //  UITableViewDelegate / UITableViewDataSource

@@ -48,36 +48,10 @@
     
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
-            NSLog(@"Error: %@", error);
+            [self showErrorWithTitle:@"Error Message" withMessage:[error localizedDescription]];
+
         } else {
             NSLog(@"%@", response);
-            //  Error Handler
-            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-            if([httpResponse statusCode] >= 400) {
-                UIAlertController * alert = [UIAlertController
-                                             alertControllerWithTitle:@"Status Code"
-                                             message:[NSString stringWithFormat:@"%ld", [httpResponse statusCode]]
-                                             preferredStyle:UIAlertControllerStyleAlert];
-                
-                UIAlertAction* yesButton = [UIAlertAction
-                                            actionWithTitle:@"Yes, please"
-                                            style:UIAlertActionStyleDefault
-                                            handler:^(UIAlertAction * action) {
-                                                //Handle your yes please button action here
-                                            }];
-                
-                UIAlertAction* noButton = [UIAlertAction
-                                           actionWithTitle:@"No, thanks"
-                                           style:UIAlertActionStyleDefault
-                                           handler:^(UIAlertAction * action) {
-                                               //Handle no, thanks button
-                                           }];
-                
-                [alert addAction:yesButton];
-                [alert addAction:noButton];
-                
-                [self presentViewController:alert animated:YES completion:nil];
-            }
             NSLog(@"%@", [responseObject objectForKey:@"data"]);
             NSArray *data = [responseObject objectForKey:@"data"];
             for(int i=0; i<[data count]; i++) {
@@ -89,6 +63,23 @@
     [dataTask resume];
 }
 
+-(void)showErrorWithTitle:(NSString *)title withMessage:(NSString *)message {
+    UIAlertController * alert = [UIAlertController
+                                 alertControllerWithTitle:title
+                                 message:message
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* okButton = [UIAlertAction
+                                actionWithTitle:@"OK"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action) {
+                                    //Handle your yes please button action here
+                                }];
+    
+    [alert addAction:okButton];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
 
 //  UITableViewDelegate / UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
