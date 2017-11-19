@@ -41,7 +41,7 @@
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
-    NSString *URLString = @"http://192.168.0.40:3000/api/urls";
+    NSString *URLString = @"http://172.20.10.3:3000/api/urls";
     NSDictionary *parameters = @{};
     
     NSURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:parameters error:nil];
@@ -51,6 +51,33 @@
             NSLog(@"Error: %@", error);
         } else {
             NSLog(@"%@", response);
+            //  Error Handler
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+            if([httpResponse statusCode] >= 400) {
+                UIAlertController * alert = [UIAlertController
+                                             alertControllerWithTitle:@"Status Code"
+                                             message:[NSString stringWithFormat:@"%ld", [httpResponse statusCode]]
+                                             preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* yesButton = [UIAlertAction
+                                            actionWithTitle:@"Yes, please"
+                                            style:UIAlertActionStyleDefault
+                                            handler:^(UIAlertAction * action) {
+                                                //Handle your yes please button action here
+                                            }];
+                
+                UIAlertAction* noButton = [UIAlertAction
+                                           actionWithTitle:@"No, thanks"
+                                           style:UIAlertActionStyleDefault
+                                           handler:^(UIAlertAction * action) {
+                                               //Handle no, thanks button
+                                           }];
+                
+                [alert addAction:yesButton];
+                [alert addAction:noButton];
+                
+                [self presentViewController:alert animated:YES completion:nil];
+            }
             NSLog(@"%@", [responseObject objectForKey:@"data"]);
             NSArray *data = [responseObject objectForKey:@"data"];
             for(int i=0; i<[data count]; i++) {
