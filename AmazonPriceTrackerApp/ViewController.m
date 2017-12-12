@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "AFNetworking.h"
+#import "AppDelegate.h"
 
 #import "CommodityViewController.h"
 
@@ -41,7 +42,8 @@
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
-    NSString *URLString = @"http://172.20.10.3:3000/api/urls";
+    AppDelegate *delegate=(AppDelegate*)[[UIApplication sharedApplication]delegate];
+    NSString *URLString = [NSString stringWithFormat:@"%@/api/urls", delegate.URL_BASE];
     NSDictionary *parameters = @{};
     
     NSURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:parameters error:nil];
@@ -100,7 +102,8 @@
     }
     NSInteger c_id = [[[_commodity_urls objectAtIndex:(long)indexPath.row] objectForKey:@"c_id"] integerValue];
     NSString *c_url = [[_commodity_urls objectAtIndex:(long)indexPath.row] objectForKey:@"c_url"];
-    cell.textLabel.text = [NSString stringWithFormat:@"ID - %ld", c_id];
+    NSString *c_title = [[_commodity_urls objectAtIndex:(long)indexPath.row] objectForKey:@"c_title"];
+    cell.textLabel.text = c_title;//[NSString stringWithFormat:@"ID - %ld", c_id];
     cell.detailTextLabel.text = c_url;
     return cell;
 }

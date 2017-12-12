@@ -7,6 +7,7 @@
 //
 
 #import "CommodityViewController.h"
+#import "AppDelegate.h"
 #import "AFNetworking.h"
 
 @interface CommodityViewController ()
@@ -51,7 +52,8 @@
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
-    NSString *URLString = [NSString stringWithFormat:@"%@%ld", @"http://172.20.10.3:3000/api/commodity/", _c_id];
+    AppDelegate *delegate=(AppDelegate*)[[UIApplication sharedApplication]delegate];
+    NSString *URLString = [NSString stringWithFormat:@"%@/api/commodity/%ld", delegate.URL_BASE, _c_id];
     NSDictionary *parameters = @{};
     
     NSURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:parameters error:nil];

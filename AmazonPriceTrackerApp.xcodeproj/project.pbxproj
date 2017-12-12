@@ -604,7 +604,7 @@
 				FA49ED5E1FAA1CB600D34AC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		FA49ED5F1FAA1CB600D34AC6 /* Build configuration list for PBXNativeTarget "AmazonPriceTrackerApp" */ = {
 			isa = XCConfigurationList;
@@ -613,7 +613,7 @@
 				FA49ED611FAA1CB600D34AC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		FA49ED621FAA1CB600D34AC6 /* Build configuration list for PBXNativeTarget "AmazonPriceTrackerAppTests" */ = {
 			isa = XCConfigurationList;
@@ -622,7 +622,7 @@
 				FA49ED641FAA1CB600D34AC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		FA49ED651FAA1CB600D34AC6 /* Build configuration list for PBXNativeTarget "AmazonPriceTrackerAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -631,7 +631,7 @@
 				FA49ED671FAA1CB600D34AC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
