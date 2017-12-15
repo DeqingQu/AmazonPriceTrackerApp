@@ -90,7 +90,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 50;
+    return 85;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -99,12 +99,31 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
+        UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, [UIScreen mainScreen].bounds.size.width - 40, 55)];
+        textLabel.tag = 1;
+        textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        textLabel.numberOfLines = 3;
+        textLabel.textAlignment = NSTextAlignmentLeft;
+        textLabel.textColor = [UIColor darkGrayColor];
+        textLabel.font = [UIFont systemFontOfSize:14];
+        [cell.contentView addSubview:textLabel];
+        
+        UILabel *detailTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 65, [UIScreen mainScreen].bounds.size.width - 40, 15)];
+        detailTextLabel.tag = 2;
+        detailTextLabel.textColor = [UIColor grayColor];
+        detailTextLabel.font = [UIFont systemFontOfSize:11];
+        [cell.contentView addSubview:detailTextLabel];
     }
-    NSInteger c_id = [[[_commodity_urls objectAtIndex:(long)indexPath.row] objectForKey:@"c_id"] integerValue];
+//    NSInteger c_id = [[[_commodity_urls objectAtIndex:(long)indexPath.row] objectForKey:@"c_id"] integerValue];
     NSString *c_url = [[_commodity_urls objectAtIndex:(long)indexPath.row] objectForKey:@"c_url"];
     NSString *c_title = [[_commodity_urls objectAtIndex:(long)indexPath.row] objectForKey:@"c_title"];
-    cell.textLabel.text = c_title;//[NSString stringWithFormat:@"ID - %ld", c_id];
-    cell.detailTextLabel.text = c_url;
+    UILabel *textLabel = [cell viewWithTag:1];
+    textLabel.text = c_title;
+    
+    UILabel *detailTextLabel = [cell viewWithTag:2];
+    detailTextLabel.text = c_url;
+    
     return cell;
 }
 
