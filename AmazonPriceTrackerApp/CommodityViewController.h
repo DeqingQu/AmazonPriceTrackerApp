@@ -11,5 +11,7 @@
 @interface CommodityViewController : UIViewController
 
 @property (assign, nonatomic) NSInteger c_id;
+@property (copy, nonatomic) NSString *c_title;
+@property (copy, nonatomic) NSString *c_url;
 
 @end

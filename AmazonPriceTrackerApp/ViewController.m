@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.title = @"Amazon Commodity URLs";
+    self.navigationItem.title = @"Home";
     
     _commodity_urls = [[NSMutableArray alloc] initWithCapacity:0];
     
@@ -136,9 +136,11 @@
     if ( [segue.identifier isEqualToString:@"commodity"] ) {
         NSIndexPath *indexPath = sender;
         NSInteger c_id = [[[_commodity_urls objectAtIndex:(long)indexPath.row] objectForKey:@"c_id"] integerValue];
+        NSString *c_url = [[_commodity_urls objectAtIndex:(long)indexPath.row] objectForKey:@"c_url"];
 
         CommodityViewController *c_vc = segue.destinationViewController;
         c_vc.c_id = c_id;
+        c_vc.c_url = c_url;
     }
 }
     

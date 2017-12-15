@@ -14,7 +14,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (copy, nonatomic) NSString *c_title;
 @property (strong, nonatomic) NSMutableArray *c_prices;
 
 @end
@@ -25,7 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    self.navigationItem.title = @"Amazon Commodity Prices";
+    self.navigationItem.title = @"Prices";
 
     _c_prices = [[NSMutableArray alloc] initWithCapacity:0];
     
@@ -105,16 +104,17 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 40)];
-    view.backgroundColor = [UIColor lightGrayColor];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 40)];
+    button.backgroundColor = [UIColor lightGrayColor];
+    [button addTarget:self action:@selector(headerClicked:) forControlEvents:UIControlEventTouchUpInside];
     /* Create custom view to display section header... */
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, tableView.frame.size.width-40, 40)];
     label.font = [UIFont systemFontOfSize:12.0f];
     label.textColor = [UIColor whiteColor];
     label.numberOfLines = 0;
     label.text = _c_title;
-    [view addSubview:label];
-    return view;
+    [button addSubview:label];
+    return button;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -140,6 +140,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)headerClicked:(id)sender {
+    
+    
 }
 
 @end
