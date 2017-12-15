@@ -106,14 +106,14 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 40)];
+    view.backgroundColor = [UIColor lightGrayColor];
     /* Create custom view to display section header... */
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, tableView.frame.size.width-20, 40)];
-    [label setFont:[UIFont boldSystemFontOfSize:12]];
-    /* Section header is in 0th index... */
-    [label setText:_c_title];
-    [label setNumberOfLines:0];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, tableView.frame.size.width-40, 40)];
+    label.font = [UIFont systemFontOfSize:12.0f];
+    label.textColor = [UIColor whiteColor];
+    label.numberOfLines = 0;
+    label.text = _c_title;
     [view addSubview:label];
-    [view setBackgroundColor:[UIColor colorWithRed:200.0/255.0 green:200.0/255.0 blue:200.0/255.0 alpha:1.0]]; //your background color...
     return view;
 }
 
@@ -127,6 +127,8 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.textLabel.textColor = [UIColor darkGrayColor];
+        cell.detailTextLabel.textColor = [UIColor grayColor];
     }
 
     float price = [[[_c_prices objectAtIndex:(long)indexPath.row] objectForKey:@"price"] floatValue];

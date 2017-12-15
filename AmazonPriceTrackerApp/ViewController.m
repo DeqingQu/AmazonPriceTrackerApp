@@ -106,13 +106,13 @@
         textLabel.numberOfLines = 3;
         textLabel.textAlignment = NSTextAlignmentLeft;
         textLabel.textColor = [UIColor darkGrayColor];
-        textLabel.font = [UIFont systemFontOfSize:14];
+        textLabel.font = [UIFont systemFontOfSize:14.0f];
         [cell.contentView addSubview:textLabel];
         
         UILabel *detailTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 65, [UIScreen mainScreen].bounds.size.width - 40, 15)];
         detailTextLabel.tag = 2;
         detailTextLabel.textColor = [UIColor grayColor];
-        detailTextLabel.font = [UIFont systemFontOfSize:11];
+        detailTextLabel.font = [UIFont systemFontOfSize:11.0f];
         [cell.contentView addSubview:detailTextLabel];
     }
 //    NSInteger c_id = [[[_commodity_urls objectAtIndex:(long)indexPath.row] objectForKey:@"c_id"] integerValue];
