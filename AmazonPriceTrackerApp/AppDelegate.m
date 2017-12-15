@@ -18,7 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    _URL_BASE = @"http://192.168.0.40:3000";
+    _URL_BASE = @"http://35.194.31.135";
     
     return YES;
 }
