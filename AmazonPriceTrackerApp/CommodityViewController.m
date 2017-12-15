@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 #import "AFNetworking.h"
 
+#import "AmazonDetailViewController.h"
+
 @interface CommodityViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -143,8 +145,17 @@
 }
 
 - (void)headerClicked:(id)sender {
+
+    [self performSegueWithIdentifier:@"amazon_detail" sender:nil];
     
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ( [segue.identifier isEqualToString:@"amazon_detail"] ) {
     
+        AmazonDetailViewController *adVC = segue.destinationViewController;
+        adVC.c_url = _c_url;
+    }
 }
 
 @end
